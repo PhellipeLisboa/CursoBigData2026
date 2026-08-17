@@ -1,0 +1,49 @@
+Palava chave do dia: condição
+
+- Novos tipos de dados:
+    -> booleano (True/False)
+    -> List: coleção ordenada e modificável
+    -> tuple: coleção ordenada e imutável
+    -> set: conjunto sem elementos repetidos
+    -> dict: pares de chave e valor
+
+OBS: List, tuple, set e dict não foram aprofundados ainda.
+
+- Comando type() -> Serve para consultar o tipo de um dado, por exemplo: print(type(nome)) deve retornar <class 'str'>.
+OBS: 'str' é abraviação para string.
+
+- Nova forma de formatar uma string utilizando o f na frente da string f"" e {} dentro da string para "encapsular" a variável,
+  por exemplo:
+  
+  nome = "Phellipe"
+  print(f"Nome do aluno: {nome}")
+
+  Esse trecho de código deve retornar: Nome do aluno: Phellipe
+
+  OBS: Pode-se utilizar :.1f dentro das chaves para determinar a quantidade de casas decimais de um número da seguinte forma:
+
+  nota = 7
+  print(f"Nota do aluno: {note:.1f}")
+
+  Esse trecho de código deve retornar: Nota do aluno: 7.0
+
+- Operadores lógicos:
+
+>  : Maior que
+<  : Menor que 
+>= : Maior ou igual
+<= : Menor ou igual
+== : Igual (Apenas um = é utilizado para declarar variável, por isso utiliza-se dois iguais aqui)
+!= : Diferente 
+
+OBS: Consultar tabelas verdade para os seguintes operadores
+    -> and : Só retorna verdadeiro caso as duas condições sejam atendidas
+    -> or  : Só retorna falso caso as duas condições não sejam atendidas
+    -> not : Negação, utilizado para inverter um valor booleano
+
+Estruturas condicionais:
+    -> if   : "se"
+    -> elif : "se não se"
+    -> else : "se não"
+
+- Comando input(): Serve para solicitar que o usuário insira o dado pelo teclado

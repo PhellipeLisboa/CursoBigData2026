@@ -1,0 +1,11 @@
+Comandos para usar o terminal:
+
+ - cd -> mudar diretório
+ - cd.. -> voltar para o diretório anterior
+ - ls -> listar arquivos e diretórios
+ - cls / clear -> limpar o terminal
+
+Atalho para comentar e descomentar multiplas linhas:
+
+- CTRL + K + C
+- CTRL + K + U

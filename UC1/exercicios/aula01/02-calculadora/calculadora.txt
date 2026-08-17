@@ -1,0 +1,16 @@
+Algoritmo para calculadora.py
+
+1 - Receber o primeiro número e atribuir a uma variável.
+2 - Receber o segundo número e atribuir a uma variável.
+3 - Calcular a soma dos dois números e atribuir a uma variável referente à soma.
+4 - Calcular a subtração entre os dois números e atribuir a uma variável referente à subtração.
+5 - Calcular a multiplicação entre os dois números e atribuir a uma variável referente à multiplicação.
+6 - Verificar se o primeiro ou o segundo número é igual a zero e:
+
+    -> Caso ambos sejam iguais a zero, atribuir o texto "indeterminado" a uma variável referente à divisão e a uma variável referente ao módulo.
+
+    -> Caso apenas o segundo número seja igual a zero, atribuir o texto "impossível" a uma variável referente à divisão e a uma variável referente ao módulo.
+
+    -> Caso o segundo número seja diferente de zero, calcular a divisão e o módulo entre os dois números e atribuir os resultados às respectivas variáveis.
+
+7 - Exibir uma mensagem para o usuário com as operações e os resultados que foram atribuídos às suas respectivas variáveis.

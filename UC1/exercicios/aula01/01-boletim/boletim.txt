@@ -1,0 +1,7 @@
+Algoritmo para boletim.py
+
+1 - Receber o nome do aluno e atribuir a uma variável.
+2 - Receber a primeira nota do aluno e atribuir a uma variável.
+3 - Receber a segunda nota do aluno e atribuir a uma variável.
+4 - Calcular a média do aluno somando as notas, dividindo o resultado por dois e atribuindo-o a uma terceira variável.
+5 - Exibir uma mensagem para o usuário com o nome do aluno, as notas e a média.
