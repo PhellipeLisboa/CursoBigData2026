@@ -7,27 +7,36 @@ combustível gasto e o valor total (R$) recebido dos passageiros. Calcular e esc
 média do consumo em km/L e o lucro (líquido) do dia.
 '''
 
+FUEL_PRICE = 6.15
+
 try:
-    FUEL_PRICE = 6.15
+    try:
+        print("===================================================================================================")
+        initial_odometer_reading = float(input("Insira a marcação do odômetro no início do dia em km: "))
+        final_odometer_reading = float(input("Insira a marcação do odômetro no final do dia em km: "))
+        fuel_consumed = float(input("Insira a quantidade de combustível gasta em litros: "))
+        daily_revenue = float(input("Insira o ganho total do dia: "))
+        print("===================================================================================================")
+    except ValueError:
+        raise ValueError("Insira apenas valores numéricos.") from None
 
-    print("===================================================================================================")
-    initial_odometer_reading = float(input("Insira a marcação do odômetro no início do dia em km: "))
-    final_odometer_reading = float(input("Insira a marcação do odômetro no final do dia em km: "))
-    fuel_consumed = float(input("Insira a quantidade de combustível gasta em litros: "))
-    daily_ravenue = float(input("Insira o ganho total do dia: "))
-    print("===================================================================================================")
+    if initial_odometer_reading < 0 or final_odometer_reading < 0:
+        raise ValueError(f"O valor do marcador não pode ser negativo (Valores fornecidos: marcador inicial = {initial_odometer_reading} | marcador final = {final_odometer_reading})")
+    
+    if initial_odometer_reading >= final_odometer_reading:
+        raise ValueError(f"O valor do marcador no final do dia deve ser maior que o valor no início do dia (Valores fornecidos: marcador inicial = {initial_odometer_reading} | marcador final = {final_odometer_reading})")
 
-    if fuel_consumed <= 0 or daily_ravenue <= 0:
-        raise ValueError("Insira apenas valores numéricos e maiores que zero.")
+    if fuel_consumed <= 0:
+        raise ValueError(f"A quantidade de combustível gasto deve ser maior que zero (Valor fornecido: {fuel_consumed})")
+    
+    if daily_revenue <= 0:
+        raise ValueError(f"O ganho total do dia deve ser maior que zero (Valor fornecido: {daily_revenue})")
+    
+    average_fuel_efficiency = (final_odometer_reading - initial_odometer_reading) / fuel_consumed
+    profit = daily_revenue - (FUEL_PRICE * fuel_consumed)
 
-    if initial_odometer_reading > final_odometer_reading:
-        raise ValueError("O valor do marcador no final do dia deve ser maior que o valor no início do dia.")
-
-    average_fuel_consumption = (final_odometer_reading - initial_odometer_reading) / fuel_consumed
-    profit = daily_ravenue - (FUEL_PRICE * fuel_consumed)
-
-    print(f"Consumo médio em km/L: {average_fuel_consumption:.2f}")
-    print(f"Lucro do dia: R$ {profit:.2f}")
+    print(f"Consumo médio em km/L: {average_fuel_efficiency:.2f}")
+    print(f"Resultado líquido do dia: R$ {profit:.2f}")
     print("===================================================================================================")
 except ValueError as error:
     print(f"Entrada inválida: {error}")

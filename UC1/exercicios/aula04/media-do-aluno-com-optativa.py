@@ -15,23 +15,24 @@ resultado final.
 
 try:
     print("==========================================================")
-    first_grade = float(input("Insira a nota da primeira avaliação: "))
-    second_grade = float(input("Insira a nota da segunda avaliação: "))
-    optative_grade = float(input("Insira a nota da avaliação optativa (Digite -1 caso o aluno não tenha feito): "))
+    first_score = float(input("Insira a nota da primeira avaliação: "))
+    second_score = float(input("Insira a nota da segunda avaliação: "))
+    optional_score = float(input("Insira a nota da avaliação optativa (Digite -1 caso o aluno não tenha feito): "))
     print("==========================================================")
 
-    if first_grade < 0 or first_grade > 10 or second_grade < 0 or second_grade > 10:
-        raise ValueError("Insira valores válidos para as notas (0 - 10).")
+    if first_score < 0 or first_score > 10 or second_score < 0 or second_score > 10:
+        raise ValueError("Insira valores válidos para as notas (0 a 10).")
 
-    if optative_grade != -1:
-        if first_grade < second_grade and optative_grade > first_grade:
-            first_grade = optative_grade
-        elif second_grade < first_grade and optative_grade > second_grade:
-            second_grade = optative_grade
+    if optional_score != -1:
+        if optional_score < 0 or optional_score > 10:
+            raise ValueError("Insira um valor válido para a nota da avaliação optativa (0 a 10 ou -1).")
+        
+        if first_score <= second_score and optional_score > first_score:
+            first_score = optional_score
+        elif second_score < first_score and optional_score > second_score:
+            second_score = optional_score
 
-        average = (first_grade + second_grade) / 2 
-    else:
-        average = (first_grade + second_grade) / 2 
+    average = (first_score + second_score) / 2 
 
     if average < 3:
         status = "Reprovado :("
