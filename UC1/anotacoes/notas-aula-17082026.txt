@@ -1,3 +1,15 @@
-Palavra chave do dia: 
+A aula foi focada em começar a utilizar git e github para versionar os diretórios e arquivos produzidos ao longo do curso.
 
-->
+Comandos git importantes:
+
+- git init
+- git add .
+- git add nome_do_arquivo (ou diretório)
+- git commit -m "mensagem explicativa do commit"
+- git push
+- git clone
+
+Comandos não citados na aula, mas que considero importantes:
+
+- git status
+- git pull
