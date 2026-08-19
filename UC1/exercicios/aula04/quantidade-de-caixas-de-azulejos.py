@@ -6,7 +6,7 @@ todas as suas paredes (considere que não será descontada a área ocupada por p
 janelas). Cada caixa de azulejos possui 1,5 m² 
 '''
 
-import math
+AREA_COVERED_PER_BOX = 1.5
 
 try:
     print("=====================================================================================")
@@ -19,9 +19,11 @@ try:
 
     walls_area = 2 * kitchen_height * (kitchen_width + kitchen_length)
 
-    AREA_COVERED_PER_BOX = 1.5
-    tile_box_count = math.ceil(walls_area / AREA_COVERED_PER_BOX)
-
+    tile_box_count = walls_area // AREA_COVERED_PER_BOX
+    
+    if walls_area % AREA_COVERED_PER_BOX != 0:
+        tile_box_count += 1
+    
     print("=====================================================================================")
     print(f"A quantidade de caixas de azulejos necessária para preencher todas as paredes é: {tile_box_count}.")
 
