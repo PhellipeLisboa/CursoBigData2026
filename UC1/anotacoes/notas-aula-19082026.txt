@@ -1,0 +1,11 @@
+Aula 04 - Dia 19/08/2026
+Tema principal: Estruturas de Decisão II
+
+Palava chave do dia: 
+
+-> match case:
+
+- case _: Caso nenhum outro case funcione, funciona como um case default.
+
+- Quando a estrutura de decisão estiver ficando muito grande, uma boa ideia é utilizar match para poupar processamento.
+
