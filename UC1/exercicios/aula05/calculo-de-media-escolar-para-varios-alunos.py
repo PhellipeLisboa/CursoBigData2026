@@ -4,11 +4,15 @@ Use o laço for para repetir a lógica de cálculo de média e status
 (Aprovado/Reprovado/Recuperação) que você fez na Aula 4, agora para 10 estudantes.
 '''
 
-def is_invalid(score):
-    return score < 0 or score > 10
-
-
 STUDENT_COUNT = 10
+MIN_SCORE = 0
+MAX_SCORE = 10
+
+
+def is_invalid(score):
+    return score < MIN_SCORE or score > MAX_SCORE
+
+
 result = "==========================================================\n"
 
 for student_index in range(STUDENT_COUNT):

@@ -9,12 +9,15 @@ a coleta dos demais dados (telefone, email etc) para esse candidato.
 '''
 
 CURRENT_YEAR = 2026
-candidate_count = 12
+CANDIDATE_COUNT = 12
+MIN_CANDIDATE_AGE = 18
+MIN_YEAR_OF_BIRTH = 1900
+
 candidates_report = "======================================================================================\n"
 candidates_report += "                                CANDIDATOS HABILITADOS                                \n"
 candidates_report += "======================================================================================\n"
 
-for candidate_index in range(candidate_count):
+for candidate_index in range(CANDIDATE_COUNT):
     print("======================================================================================")
     print(f"                              Cadastro do {candidate_index + 1}º candidato                     ")
     print("======================================================================================")
@@ -22,13 +25,13 @@ for candidate_index in range(candidate_count):
     name = input("Digite seu nome: ")
     year_of_birth = int(input("Digite seu ano de nascimento: "))
 
-    if CURRENT_YEAR < year_of_birth:
-        print(f"Entrada inválida: o ano de nascimento não pode ser maior que {CURRENT_YEAR}")
+    if year_of_birth < MIN_YEAR_OF_BIRTH or CURRENT_YEAR < year_of_birth:
+        print(f"Entrada inválida: Informe um ano entre {MIN_YEAR_OF_BIRTH} e {CURRENT_YEAR}")
         continue
 
     age = CURRENT_YEAR - year_of_birth
-    if age < 18:
-        print(f"Infelizmente apenas pessoas com 18 anos ou mais podem participar.")
+    if age < MIN_CANDIDATE_AGE:
+        print(f"Infelizmente apenas pessoas com {MIN_CANDIDATE_AGE} anos ou mais podem participar.")
         continue
 
     phone_number = input("Digite seu telefone: ")
