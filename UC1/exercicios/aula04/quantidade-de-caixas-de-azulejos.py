@@ -19,9 +19,10 @@ try:
 
     walls_area = 2 * kitchen_height * (kitchen_width + kitchen_length)
 
-    tile_box_count = walls_area // AREA_COVERED_PER_BOX
-    
-    if walls_area % AREA_COVERED_PER_BOX != 0:
+    tile_box_count = int(walls_area / AREA_COVERED_PER_BOX)
+    covered_area = tile_box_count * AREA_COVERED_PER_BOX
+
+    if covered_area < walls_area:
         tile_box_count += 1
     
     print("=====================================================================================")

@@ -7,11 +7,12 @@ cômodo. Considere que a potência necessária é de 3 watts por metro quadrado 
 3m² existe um bocal para uma lâmpada.
 '''
 
-import math
+WATTS_PER_SQUARE_METER = 3
+SQUARE_METERS_PER_LAMP_SLOT = 3
 
 try: 
     print("=====================================================================")
-    lamp_wattage = int(input("Digite a potência da lâmpada em Watts: "))
+    lamp_wattage = int(input("Digite a potência da lâmpada em watts: "))
     room_width = float(input("Digite a largura do cômodo em metros: "))
     room_length = float(input("Digite o comprimento do cômodo em metros: "))
 
@@ -19,26 +20,30 @@ try:
         raise ValueError
 
     room_area = room_length * room_width
-    available_lamp_slots = math.ceil(room_area / 3)
+    required_wattage = WATTS_PER_SQUARE_METER * room_area
+    required_lamps = int(required_wattage / lamp_wattage)
 
-    required_wattage = 3 * room_area
+    if (required_lamps * lamp_wattage) < required_wattage:
+        required_lamps += 1
 
-    min_lamp_wattage = math.ceil(required_wattage / available_lamp_slots)
-
-    required_lamps = math.ceil(required_wattage / lamp_wattage)
+    if room_area < SQUARE_METERS_PER_LAMP_SLOT:
+        available_lamp_slots = 1
+    else:
+        available_lamp_slots = int(room_area / SQUARE_METERS_PER_LAMP_SLOT)
 
     print("=====================================================================")
-    print(f"A área do cômodo é de: {room_area} m²")
+    print(f"A área do cômodo é de: {room_area:.2f} m²")
     print(f"O número de bocais disponíveis é: {available_lamp_slots}")
-    print(f"A potêncial total necessária para iluminar este cômodo é de: {required_wattage} W")
+    print(f"A potência total necessária para iluminar este cômodo é de: {required_wattage:.2f} W")
+    print(f"A quantidade de lâmpadas de {lamp_wattage} W necessário para iluminar o cômodo é: {required_lamps}")
     print("=====================================================================")
     
     if required_lamps < available_lamp_slots:
-        print(f"Utilizando lâmpadas de {lamp_wattage} W, não será necessário utilizar todos os bocais disponíveis nesse cômodo. O número de lâmpadas necessárias será: {required_lamps} lâmpadas.")
+        print("Não será necessário utilizar todos os bocais disponíveis nesse cômodo.")
     elif required_lamps == available_lamp_slots:
-        print(f"Utilizando lâmpadas de {lamp_wattage} W, todos os bocais disponíveis nesse cômodo deverão ser utilizados, ou seja, serão necessárias {required_lamps} lâmpadas.")
+        print("Todos os bocais disponíveis nesse cômodo deverão ser utilizados.")
     else:
-        print(f"Este cômodo não possui bocais suficientes para iluminar de forma adequada com lâmpadas de {lamp_wattage} W. Opte por lâmpadas de pelo menos {min_lamp_wattage} W")
+        print(f"Este cômodo não possui bocais suficientes para iluminá-lo de forma adequada com lâmpadas de {lamp_wattage} W.")
     
     
 except ValueError:
