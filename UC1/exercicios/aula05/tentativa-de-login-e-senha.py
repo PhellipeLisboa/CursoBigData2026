@@ -14,6 +14,7 @@ restantes.
 MAX_ATTEMPTS = 3
 CORRECT_USERNAME = "admin"
 CORRECT_PASSWORD = "123456"
+SEPARATOR_WIDTH = 65
 
 
 def are_credentials_valid(username_input, password_input):
@@ -21,20 +22,22 @@ def are_credentials_valid(username_input, password_input):
 
 
 for attempt_index in range(MAX_ATTEMPTS):
-    print("======================================================================================")
+    print("=" * SEPARATOR_WIDTH)
+
+    remaining_attempts = MAX_ATTEMPTS - (attempt_index + 1)
 
     username_input = input("Usuário: ")
     password_input = input("Senha: ")
 
     if are_credentials_valid(username_input, password_input):
-        print("--------------------------------------------------------------------------------------")
+        print("-" * SEPARATOR_WIDTH)
         print("Logado com sucesso!")
-        print("======================================================================================")
+        print("=" * SEPARATOR_WIDTH)
         break
     elif attempt_index < (MAX_ATTEMPTS - 1):
-        print("--------------------------------------------------------------------------------------")
-        print(f"Credenciais inválidas. Tente novamente. (Tentativas restantes: {MAX_ATTEMPTS - (attempt_index + 1)})")
+        print("-" * SEPARATOR_WIDTH)
+        print(f"Credenciais inválidas. Tente novamente. (Tentativas restantes: {remaining_attempts})")
     else:
-        print("--------------------------------------------------------------------------------------")
+        print("-" * SEPARATOR_WIDTH)
         print("Número máximo de tentativas atingido. Login bloqueado por 24 horas.")
-        print("======================================================================================")
+        print("=" * SEPARATOR_WIDTH)

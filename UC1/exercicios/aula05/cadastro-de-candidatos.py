@@ -12,30 +12,37 @@ CURRENT_YEAR = 2026
 CANDIDATE_COUNT = 12
 MIN_CANDIDATE_AGE = 18
 MIN_YEAR_OF_BIRTH = 1900
+REPORT_WIDTH = 86
 
-candidates_report = "======================================================================================\n"
-candidates_report += "                                CANDIDATOS HABILITADOS                                \n"
-candidates_report += "======================================================================================\n"
+report = "=" * REPORT_WIDTH + "\n"
+report += "CANDIDATOS HABILITADOS".center(REPORT_WIDTH) + "\n"
+report += "=" * REPORT_WIDTH + "\n"
 
 for candidate_index in range(CANDIDATE_COUNT):
-    print("======================================================================================")
-    print(f"                              Cadastro do {candidate_index + 1}º candidato                     ")
-    print("======================================================================================")
+    print("=" * REPORT_WIDTH)
+    print(f"Cadastro do {candidate_index + 1}º candidato".center(REPORT_WIDTH))
+    print("=" * REPORT_WIDTH)
 
     name = input("Digite seu nome: ")
-    year_of_birth = int(input("Digite seu ano de nascimento: "))
 
-    if year_of_birth < MIN_YEAR_OF_BIRTH or CURRENT_YEAR < year_of_birth:
-        print(f"Entrada inválida: Informe um ano entre {MIN_YEAR_OF_BIRTH} e {CURRENT_YEAR}")
+    try:
+        year_of_birth = int(input("Digite seu ano de nascimento: "))
+        
+        if year_of_birth < MIN_YEAR_OF_BIRTH or CURRENT_YEAR < year_of_birth:
+            print(f"Entrada inválida: informe um ano entre {MIN_YEAR_OF_BIRTH} e {CURRENT_YEAR}")
+            continue
+    
+        age = CURRENT_YEAR - year_of_birth
+        if age < MIN_CANDIDATE_AGE:
+            print(f"Infelizmente apenas pessoas com {MIN_CANDIDATE_AGE} anos ou mais podem participar.")
+            continue
+    
+        phone_number = input("Digite seu telefone: ")
+        email = input("Digite seu email: ")
+        report += f"Nome: {name} | Idade: {age} | Telefone: {phone_number} | Email: {email}\n"
+        report += "-" * REPORT_WIDTH + "\n"
+    except ValueError:
+        print("Entrada inválida: informe apenas valores numéricos para ano de nascimento.")
         continue
 
-    age = CURRENT_YEAR - year_of_birth
-    if age < MIN_CANDIDATE_AGE:
-        print(f"Infelizmente apenas pessoas com {MIN_CANDIDATE_AGE} anos ou mais podem participar.")
-        continue
-
-    phone_number = input("Digite seu telefone: ")
-    email = input("Digite seu email: ")
-    candidates_report += f"Nome: {name} | Idade: {age} | Telefone: {phone_number} | Email: {email}\n--------------------------------------------------------------------------------------\n"
-
-print(candidates_report)
+print(report)

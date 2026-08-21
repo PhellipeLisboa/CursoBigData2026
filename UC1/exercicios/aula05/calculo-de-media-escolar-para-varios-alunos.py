@@ -7,36 +7,40 @@ Use o laço for para repetir a lógica de cálculo de média e status
 STUDENT_COUNT = 10
 MIN_SCORE = 0
 MAX_SCORE = 10
-
+REPORT_WIDTH = 58
 
 def is_invalid(score):
     return score < MIN_SCORE or score > MAX_SCORE
 
 
-result = "==========================================================\n"
+report = "=" * REPORT_WIDTH + "\n" + "RELATÓRIO".center(REPORT_WIDTH) + "\n" + "=" * REPORT_WIDTH + "\n"
 
 for student_index in range(STUDENT_COUNT):
-    print("==========================================================")
-    name = input(f"Insira o nome do {student_index + 1}º estudante: ")
-    first_score = float(input("Insira a primeira nota: "))
-    second_score = float(input("Insira a segunda nota: "))
-    third_score = float(input("Insira a terceira nota: "))
-    fourth_score = float(input("Insira a quarta nota: "))
+    print("=" * REPORT_WIDTH)
+    try: 
+        name = input(f"Insira o nome do {student_index + 1}º estudante: ")
+        first_score = float(input("Insira a primeira nota: "))
+        second_score = float(input("Insira a segunda nota: "))
+        third_score = float(input("Insira a terceira nota: "))
+        fourth_score = float(input("Insira a quarta nota: "))
 
-    if is_invalid(first_score) or is_invalid(second_score) or is_invalid(third_score) or is_invalid(fourth_score):
-        print("Entrada inválida: notas devem estar no intervalo de 0 a 10.")
-        break
+        if is_invalid(first_score) or is_invalid(second_score) or is_invalid(third_score) or is_invalid(fourth_score):
+            print("Entrada inválida: notas devem estar no intervalo de 0 a 10.")
+            continue
 
-    average = (first_score + second_score + third_score + fourth_score) / 4
-    
-    if average < 5:
-        status = "Reprovado :("
-    elif average <= 7:
-        status = "Recuperação :("
-    else:
-        status = "Aprovado :)"
+        average = (first_score + second_score + third_score + fourth_score) / 4
+        
+        if average < 5:
+            status = "Reprovado :("
+        elif average <= 7:
+            status = "Recuperação :("
+        else:
+            status = "Aprovado :)"
 
-    result += f"Aluno: {name} | Média: {average:.2f} | Situação: {status}\n"
-    result += "----------------------------------------------------------\n"
+        report += f"Aluno: {name} | Média: {average:.2f} | Situação: {status}\n"
+        report += "-" * REPORT_WIDTH + "\n"
+    except ValueError:
+        print("Entrada inválida: insira apenas valores numéricos.")
+        continue
 
-print(result)
+print(report)
