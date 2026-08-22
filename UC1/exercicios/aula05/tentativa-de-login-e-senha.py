@@ -39,5 +39,5 @@ for attempt_index in range(MAX_ATTEMPTS):
         print(f"Credenciais inválidas. Tente novamente. (Tentativas restantes: {remaining_attempts})")
     else:
         print("-" * SEPARATOR_WIDTH)
-        print("Número máximo de tentativas atingido. Login bloqueado por 24 horas.")
+        print("Login bloqueado: número máximo de tentativas atingido. Entre em contato com o suporte: 4002-8922.")
         print("=" * SEPARATOR_WIDTH)

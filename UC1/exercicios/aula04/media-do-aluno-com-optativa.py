@@ -13,35 +13,46 @@ Observação: nota optativa - o estudante decide fazer uma prova extra para melh
 resultado final.
 '''
 
+SEPARATOR_WIDTH = 81
+
 try:
-    print("==========================================================")
+    print("=" * SEPARATOR_WIDTH)
     first_score = float(input("Insira a nota da primeira avaliação: "))
     second_score = float(input("Insira a nota da segunda avaliação: "))
     optional_score = float(input("Insira a nota da avaliação optativa (Digite -1 caso o aluno não tenha feito): "))
-    print("==========================================================")
+    print("=" * SEPARATOR_WIDTH)
+
+    scores_are_valid = True
 
     if first_score < 0 or first_score > 10 or second_score < 0 or second_score > 10:
-        raise ValueError("Insira valores válidos para as notas (0 a 10).")
+        scores_are_valid = False
 
-    if optional_score != -1:
-        if optional_score < 0 or optional_score > 10:
-            raise ValueError("Insira um valor válido para a nota da avaliação optativa (0 a 10 ou -1).")
-        
-        if first_score <= second_score and optional_score > first_score:
-            first_score = optional_score
-        elif second_score < first_score and optional_score > second_score:
-            second_score = optional_score
+    if optional_score != -1 and (optional_score < 0 or optional_score > 10):
+        scores_are_valid = False
 
-    average = (first_score + second_score) / 2 
+    if scores_are_valid:
 
-    if average < 3:
-        status = "Reprovado :("
-    elif average < 6:
-        status = "Recuperação :("
-    else: 
-        status = "Aprovado :)"
+        if optional_score != -1:
+            if first_score <= second_score and optional_score > first_score:
+                first_score = optional_score
+            elif second_score < first_score and optional_score > second_score:
+                second_score = optional_score
 
-    print(f"Média: {average:.2f} | Situação: {status}")
-    print("==========================================================")
-except ValueError as error:
-    print(f"Entrada inválida: {error}")
+        average = (first_score + second_score) / 2 
+
+        if average < 3:
+            status = "Reprovado :("
+        elif average < 6:
+            status = "Recuperação :("
+        else: 
+            status = "Aprovado :)"
+
+        print(f"Média: {average:.2f} | Situação: {status}")
+        print("=" * SEPARATOR_WIDTH)
+    else:
+        print("Entrada inválida: insira valores válidos para as notas (0 a 10, ou -1 para a optativa).")
+        print("=" * SEPARATOR_WIDTH)
+except ValueError:
+    print("=" * SEPARATOR_WIDTH)
+    print("Entrada inválida: insira apenas valores numéricos.")
+    print("=" * SEPARATOR_WIDTH)
