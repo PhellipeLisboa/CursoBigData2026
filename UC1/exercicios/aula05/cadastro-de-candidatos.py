@@ -18,9 +18,11 @@ report = "=" * REPORT_WIDTH + "\n"
 report += "CANDIDATOS HABILITADOS".center(REPORT_WIDTH) + "\n"
 report += "=" * REPORT_WIDTH + "\n"
 
-for candidate_index in range(CANDIDATE_COUNT):
+registered_candidates = 0
+
+while registered_candidates < CANDIDATE_COUNT:
     print("=" * REPORT_WIDTH)
-    print(f"Cadastro do {candidate_index + 1}º candidato".center(REPORT_WIDTH))
+    print(f"Cadastro do {registered_candidates + 1}º candidato".center(REPORT_WIDTH))
     print("=" * REPORT_WIDTH)
 
     name = input("Digite seu nome: ")
@@ -41,8 +43,9 @@ for candidate_index in range(CANDIDATE_COUNT):
         email = input("Digite seu email: ")
         report += f"Nome: {name} | Idade: {age} | Telefone: {phone_number} | Email: {email}\n"
         report += "-" * REPORT_WIDTH + "\n"
+        
+        registered_candidates+=1
     except ValueError:
         print("Entrada inválida: informe apenas valores numéricos para ano de nascimento.")
-        continue
 
 print(report)
