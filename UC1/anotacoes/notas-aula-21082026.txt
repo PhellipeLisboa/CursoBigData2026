@@ -1,0 +1,5 @@
+range(início, final, gap)
+
+- break: quebra o código intencionalmente.
+- pause
+- continue
