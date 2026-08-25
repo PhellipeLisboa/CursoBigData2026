@@ -1,0 +1,3 @@
+- É possível ler uma lista de trás para frente usando índice negativo
+- Listas podem armazenar dados de tipos diferentes
+- Operador in
