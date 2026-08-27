@@ -21,37 +21,22 @@ def roll_dice(faces):
     return random.randint(1, faces)
 
 
-def separator(character):
+def print_separator(character):
     print(character * SEPARATOR_WIDTH)
 
 
-separator("=")
-print("Simulador de batalha".center(SEPARATOR_WIDTH))
-separator("=")
-print("Escolha uma ação:")
-print("1 - Atacar (d20)\n2 - Fugir(d10)")
+print_separator("=")
+print("SIMULADOR DE BATALHA".center(SEPARATOR_WIDTH))
+print_separator("=")
 
-try:
-    option = int(input("Ação: "))
-    separator("=")
+input("Pressione Enter para rolar o ataque (d20)...")
+attack_roll = roll_dice(20)
+print(f"Resultado da rolagem de ataque: {attack_roll}")
 
-    match option:
-        case 1:
-            d20 = roll_dice(20)
-            print("Rolando um d20...")
-            print(f"Você optou por atacar e tirou {d20} no d20.")
-            separator('-')
-            d8 = roll_dice(8)
-            print("Rolando um d8 para verificar seu dano...")
-            print(f"Seu dano foi {d8}.")
-        case 2:
-            d10 = roll_dice(10)
-            print("Rolando um d10...")
-            print(f"Você optou por fugir e tirou {d10} no d10.")
-            separator('-')
-        case _:
-            print("Opção inválida!")
-except ValueError:
-    print("Entrada inválida: Insira apenas valores numéricos inteiros!")
+print_separator("-")
 
-separator('=')
+input("Pressione Enter para rolar o dano (d8)...")
+damage_roll = roll_dice(8)
+print(f"Resultado da rolagem de dano: {damage_roll}")
+
+print_separator("=")

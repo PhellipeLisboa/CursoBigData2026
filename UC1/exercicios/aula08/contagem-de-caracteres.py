@@ -13,35 +13,38 @@ da contagem.
 SEPARATOR_WIDTH = 75
 
 
-def count_characters(text, desired_character):
-
-    if len(desired_character) == 1:
-        count = 0
-        for character in text:
-            if character == desired_character: 
-                count += 1
-        return count
-    else:
+def count_character_occurrences(text, target_character):
+    if len(target_character) != 1:
         return -1
+        
+    target_character = target_character.lower()
+    count = 0
+
+    for character in text.lower():
+        if character == target_character: 
+            count += 1
+
+    return count
 
 
-def separator(character):
+def print_separator(character):
     print(character * SEPARATOR_WIDTH)
 
 
-separator("=")
+print_separator("=")
 print("Contador de caracteres".center(SEPARATOR_WIDTH))
-separator("=")
+print_separator("=")
 
 text = input("Digite um texto: ")
-text_lower = text.lower()
 desired_character = input("Digite o caractere que deseja contar: ")
-separator("-")
-characters_count = count_characters(text_lower, desired_character)
+print_separator("-")
+character_occurrences = count_character_occurrences(text, desired_character)
 
-if characters_count == -1:
-    print("Entrada inválida: Insira apenas um caractere para realizar a contagem.")
-    separator("=")
+if character_occurrences == -1:
+    print("Entrada inválida: insira apenas um caractere para realizar a contagem.")
+elif character_occurrences == 1:
+    print(f"Foi encontrada {character_occurrences} ocorrência do caractere '{desired_character}' em: {text}")
 else:
-    print(f"Foram encontradas {characters_count} ocorrências do caractere '{desired_character}' em: {text} ")
-    separator("=")
+    print(f"Foram encontradas {character_occurrences} ocorrências do caractere '{desired_character}' em: {text}")
+
+print_separator("=")

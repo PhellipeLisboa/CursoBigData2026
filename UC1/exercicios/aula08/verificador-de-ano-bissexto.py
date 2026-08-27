@@ -13,38 +13,46 @@ e 2100 não são).
 SEPARATOR_WIDTH = 60
 
 def is_leap_year(year):
-    
-    if year % 4 == 0:
-        if year % 100 == 0:
-            if year % 400 == 0:
-                return True
-            else:
-                return False
-        else:
-            return True
-    else:
+    if year % 400 == 0:
+        return True
+
+    if year % 100 == 0:
         return False
 
+    return year % 4 == 0
 
-def separator(character):
+
+def print_separator(character):
     print(character * SEPARATOR_WIDTH)
 
 
-separator("=")
+print_separator("=")
 print("Verificador de ano bissexto".center(SEPARATOR_WIDTH))
-separator("=")
+print_separator("=")
 
-try:
-    year = int(input("Digite um ano: "))
-    separator("-")
-    
-    if is_leap_year(year):
-        print(f"O ano {year} é bissexto.")
-        separator("=")
-    else:
-        print(f"O ano {year} NÃO é bissexto.")
-        separator("=")
+while True:
+    try:
+        year = int(input("Digite um ano (-1 para encerrar): "))
 
-except ValueError:
-    print("Entrada inválida: Insira apenas valores numéricos.")
-    separator("=")
+        if year == -1:
+            print("Encerrando programa...")
+            print_separator("=")
+            break
+
+        if year < 0:
+            print("Entrada inválida: anos negativos não são permitidos.")
+            print_separator("-")
+            continue
+        print_separator("-")
+
+        
+        if is_leap_year(year):
+            print(f"O ano {year} é bissexto.")
+        else:
+            print(f"O ano {year} NÃO é bissexto.")
+            
+        print_separator("=")
+
+    except ValueError:
+        print("Entrada inválida: insira apenas números inteiros.")
+        print_separator("-")
