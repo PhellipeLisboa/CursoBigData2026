@@ -23,46 +23,46 @@ print("\n--- 1. VALIDADOR DE TRIÂNGULO ---")
 # 3. Imprima se é ou não um triângulo válido.
 
 
-# def ask_triangle_side(side_text):
-#     while True:
-#         try:
-#             value = float(input(f"Digite o {side_text} lado: "))
-#             if value <= 0:
-#                 print("Insira apenas valores maiores que zero.")
-#                 print_separator(60)
-#                 continue
-#             return value
-#         except ValueError:
-#             print("Entrada inválida: insira apenas valores numéricos.")
-#             print_separator(60)
+def ask_triangle_side(side_text):
+    while True:
+        try:
+            value = float(input(f"Digite o {side_text} lado: "))
+            if value <= 0:
+                print("Insira apenas valores maiores que zero.")
+                print_separator(60)
+                continue
+            return value
+        except ValueError:
+            print("Entrada inválida: insira apenas valores numéricos.")
+            print_separator(60)
 
 
-# def is_triangle_valid(first_side, second_side, third_side):
-#     first_condition = first_side + second_side > third_side
-#     second_condition = first_side + third_side > second_side
-#     third_condition = second_side + third_side > first_side
+def is_triangle_valid(first_side, second_side, third_side):
+    first_condition = first_side + second_side > third_side
+    second_condition = first_side + third_side > second_side
+    third_condition = second_side + third_side > first_side
 
-#     return first_condition and second_condition and third_condition
+    return first_condition and second_condition and third_condition
 
 
-# print_separator(60)
-# first_side = ask_triangle_side("primeiro")
+print_separator(60)
+first_side = ask_triangle_side("primeiro")
 
-# print_separator(60)
-# second_side = ask_triangle_side("segundo")
+print_separator(60)
+second_side = ask_triangle_side("segundo")
 
-# print_separator(60)
-# third_side = ask_triangle_side("terceiro")
+print_separator(60)
+third_side = ask_triangle_side("terceiro")
 
-# if is_triangle_valid(first_side, second_side, third_side):
-#     result = "válido"
-# else:
-#     result = "inválido"
+if is_triangle_valid(first_side, second_side, third_side):
+    result = "válido"
+else:
+    result = "inválido"
 
-# print_separator(60)
-# print(
-#     f"Um triângulo de lados {first_side}, {second_side} e {third_side} é {result}.")
-# print_separator(60)
+print_separator(60)
+print(
+    f"Um triângulo de lados {first_side}, {second_side} e {third_side} é {result}.")
+print_separator(60)
 # FIM DO DESAFIO 1
 
 # ------------------------------------------------------------------------------
@@ -79,31 +79,31 @@ TENTATIVAS_MAX = 5
 # 4. Se acertar, use o comando 'break' e imprima sucesso.
 
 
-# for attempt_index in range(TENTATIVAS_MAX):
+for attempt_index in range(TENTATIVAS_MAX):
 
-#     while True:
-#         try:
-#             guess = int(input(f"Digite seu {attempt_index + 1}º palpite: "))
-#             print_separator(60)
-#             break
-#         except ValueError:
-#             print("Entrada inválida: insira apenas valores numéricos inteiros.")
-#             print_separator(60)
+    while True:
+        try:
+            guess = int(input(f"Digite seu {attempt_index + 1}º palpite: "))
+            print_separator(60)
+            break
+        except ValueError:
+            print("Entrada inválida: insira apenas valores numéricos inteiros.")
+            print_separator(60)
 
-#     if guess < NUMERO_SECRETO:
-#         print(f"O número secreto é maior que {guess}.")
-#         print_separator(60)
-#     elif guess > NUMERO_SECRETO:
-#         print(f"O número secreto é menor que {guess}.")
-#         print_separator(60)
-#     else:
-#         print(f"O número secreto é {guess} :) Parabéns!")
-#         print_separator(60)
-#         break
+    if guess < NUMERO_SECRETO:
+        print(f"O número secreto é maior que {guess}.")
+        print_separator(60)
+    elif guess > NUMERO_SECRETO:
+        print(f"O número secreto é menor que {guess}.")
+        print_separator(60)
+    else:
+        print(f"O número secreto é {guess} :) Parabéns!")
+        print_separator(60)
+        break
 
-#     if attempt_index == TENTATIVAS_MAX - 1:
-#         print("Limite de tentativas esgotado :(")
-#         print_separator(60)
+    if attempt_index == TENTATIVAS_MAX - 1:
+        print("Limite de tentativas esgotado :(")
+        print_separator(60)
 # FIM DO DESAFIO 2
 
 # ------------------------------------------------------------------------------
@@ -118,29 +118,29 @@ print("1 - Iniciar | 2 - Configurações | 3 - Ajuda | 4 - Sair")
 # 3. Implemente os 'case' 1, 2, 3 e 4.
 # 4. Use o 'case _' para tratar opções inválidas.
 
-# while True:
-#     try:
-#         option = int(input("Opção desejada: "))
-#         print_separator(60)
+while True:
+    try:
+        option = int(input("Opção desejada: "))
+        print_separator(60)
 
-#         match option:
-#             case 1:
-#                 print("Opção escolhida: Iniciar")
-#             case 2:
-#                 print("Opção escolhida: Configurações")
-#             case 3:
-#                 print("Opção escolhida: Ajuda")
-#             case 4:
-#                 print("Opção escolhida: Sair")
-#             case _:
-#                 print(
-#                     "Entrada inválida: insira apenas números correspondentes às opções do menu.")
-#                 continue
+        match option:
+            case 1:
+                print("Opção escolhida: Iniciar")
+            case 2:
+                print("Opção escolhida: Configurações")
+            case 3:
+                print("Opção escolhida: Ajuda")
+            case 4:
+                print("Opção escolhida: Sair")
+            case _:
+                print(
+                    "Entrada inválida: insira apenas números correspondentes às opções do menu.")
+                continue
 
-#         break
-#     except ValueError:
-#         print("Entrada inválida: insira apenas valores numéricos inteiros.")
-#         print_separator(60)
+        break
+    except ValueError:
+        print("Entrada inválida: insira apenas valores numéricos inteiros.")
+        print_separator(60)
 # FIM DO DESAFIO 3
 
 
@@ -156,14 +156,14 @@ print("\n--- 4. CONTADOR DE VOGAIS ---")
 # 4. Dentro do loop, use um IF com o operador 'or' para checar se a letra é 'a', 'e', 'i', 'o' ou 'u'.
 # 5. Se for, incremente o contador.
 
-# text = input("Digite uma frase: ").lower()
-# vowel_count = 0
+text = input("Digite uma frase: ").lower()
+vowel_count = 0
 
-# for letter in text:
-#     if letter == 'a' or letter == 'e' or letter == 'i' or letter == 'o' or letter == 'u':
-#         vowel_count += 1
+for letter in text:
+    if letter == 'a' or letter == 'e' or letter == 'i' or letter == 'o' or letter == 'u':
+        vowel_count += 1
 
-# print(f"O número de vogais no texto é: {vowel_count}")
+print(f"O número de vogais no texto é: {vowel_count}")
 # FIM DO DESAFIO 4
 
 
@@ -182,33 +182,33 @@ TENTATIVAS_MAX = 4
 # 3. Use IF para checar se a combinação está correta. Se sim, imprima sucesso e use 'break'.
 # 4. Fora do loop (ou no ELSE), cheque se o acesso foi bloqueado (se tentativas_atuais alcançou o máximo).
 
-# print_separator(60)
-# print("CADASTRO".center(60))
-# USUARIO = input("Escolha um nome de usuário: ")
-# SENHA = input("Crie sua senha: ")
-# print_separator(60)
+print_separator(60)
+print("CADASTRO".center(60))
+USUARIO = input("Escolha um nome de usuário: ")
+SENHA = input("Crie sua senha: ")
+print_separator(60)
 
-# current_attempt = 0
-# while current_attempt < TENTATIVAS_MAX:
-#     username = input("Digite seu nome de usuário: ")
-#     password = input("Digite sua senha: ")
-#     print_separator(60)
+current_attempt = 0
+while current_attempt < TENTATIVAS_MAX:
+    username = input("Digite seu nome de usuário: ")
+    password = input("Digite sua senha: ")
+    print_separator(60)
 
-#     if username != USUARIO or password != SENHA:
-#         print("Nome de usuário ou senha incorretos.")
-#         print_separator(60)
-#     else:
-#         print("Logado com sucesso!")
-#         print_separator(60)
-#         break
+    if username != USUARIO or password != SENHA:
+        print("Nome de usuário ou senha incorretos.")
+        print_separator(60)
+    else:
+        print("Logado com sucesso!")
+        print_separator(60)
+        break
 
-#     if current_attempt == TENTATIVAS_MAX - 1:
-#         print("Número máximo de tentativas atingido. Acesso bloqueado. Entre em contato com o suporte: 4002-8922")
-#         print_separator(60)
-#     else:
-#         print(f"Tentativas restantes: {TENTATIVAS_MAX - current_attempt - 1}")
+    if current_attempt == TENTATIVAS_MAX - 1:
+        print("Número máximo de tentativas atingido. Acesso bloqueado. Entre em contato com o suporte: 4002-8922")
+        print_separator(60)
+    else:
+        print(f"Tentativas restantes: {TENTATIVAS_MAX - current_attempt - 1}")
 
-#     current_attempt += 1
+    current_attempt += 1
 # FIM DO DESAFIO 5
 
 
@@ -223,9 +223,44 @@ print("\n--- 6. CALCULADORA SIMPLES ---")
 # 3. Trate o caso de divisão por zero dentro do 'case /'.
 # 4. Use o 'case _' para tratar símbolos inválidos.
 
+def calculator(first_number, second_number, operator):
+    match operator:
+        case "+":
+            return first_number + second_number
+        case "-":
+            return first_number - second_number
+        case "*":
+            return first_number * second_number
+        case "/":
+            if second_number != 0:
+                return first_number / second_number
+            else:
+                print("Entrada inválida: não é possível dividir por zero.")
+                return None
+        case _:
+            print("Entrada inválida: digite apenas operados válidos: +, -, * e /")
+            return None
 
-# [ESPAÇO PARA O CÓDIGO]
 
+while True: 
+    try:
+        print_separator(60)
+        first_number = float(input("Digite o primeiro número: "))
+        second_number = float(input("Digite o segundo número: "))
+        print_separator(60)
+
+        break
+    except ValueError:
+        print("Entrada inválida: digite apenas valores numéricos.")
+
+print("Escolha a operação desejada entre +, -, * e / : ")
+operator = input("Operação escolhida: ")
+
+result = calculator(first_number, second_number, operator)
+if result != None:
+    print(f"{first_number} {operator} {second_number} = {result}")
+    print_separator(60)
+# FIM DO DESAFIO 6
 
 # ------------------------------------------------------------------------------
 # 7. CONTAGEM REGRESSIVA
@@ -237,8 +272,22 @@ print("\n--- 7. CONTAGEM REGRESSIVA ---")
 # 2. Use um laço WHILE com a condição 'while contador >= 1:'.
 # 3. Dentro do loop, imprima o valor e use o decremento 'contador = contador - 1'.
 
+while True:
+    try:
+        count = int(input("Insira um numero inteiro maior que 1: "))
 
-# [ESPAÇO PARA O CÓDIGO]
+        if count <= 1:
+            print("Entrada inválida: digite apenas números maiores que 1.")
+            continue
+
+        break
+    except ValueError:
+        print("Entrada inválida: digite apenas números inteiros.")
+
+while count >= 1:
+    print(count)
+    count -= 1
+# FIM DO DESAFIO 7
 
 
 # ------------------------------------------------------------------------------
@@ -253,8 +302,32 @@ print("\n--- 8. CÁLCULO DE FATORIAL ---")
 # 4. Dentro do loop, atualize a acumuladora: 'resultado_fatorial = resultado_fatorial * i'.
 # 5. Use IF/ELSE para tratar N=0 e N negativo.
 
+def calculate_factorial(number):
+    '''
+    Calcula o fatorial de um número inteiro maior que zero.
+    '''
+    if number < 0:
+        print("Entrada invalida: Digite apenas números maiores que zero.")
+        return None
+    elif number == 0:
+        return 1
+    else:
+        result = 1
+        for n in range (1, number + 1):
+            result *= n
+        return result
 
-# [ESPAÇO PARA O CÓDIGO]
+while True:
+    try:
+        number = int(input("Digite um número para calcular seu fatorial: "))
+        break
+    except ValueError:
+        print("Entrada inválida: digite apenas números inteiros.")
+
+result = calculate_factorial(number)
+if result != None:
+    print(f"{number}! = {result}")
+# FIM DO DESAFIO 8
 
 
 # ------------------------------------------------------------------------------
@@ -268,8 +341,14 @@ print("\n--- 9. SIMULAÇÃO DO-WHILE ---")
 # 3. Use um IF para verificar se a entrada é válida (se não está VAZIA: 'if entrada != "":').
 # 4. Se for válida, use o comando 'break' para sair do loop.
 
+while True:
+    text = input("Digite qualquer coisa: ")
 
-# [ESPAÇO PARA O CÓDIGO]
+    if text != "":
+        print("Entrada válida!")
+        break
+    print("Entrada inválida!")
+# FIM DO DESAFIO 9
 
 
 # ------------------------------------------------------------------------------
@@ -283,8 +362,31 @@ ANO_ATUAL = 2025  # Use este valor para o cálculo
 # 2. Calcule a idade.
 # 3. Use IF/ELIF/ELSE para verificar as faixas: <= 12 (Criança), <= 17 (Adolescente), Adulto (outros).
 
+while True:
+    try:
+        print_separator(60)
+        birth_year = int(input("Insira seu ano de nascimento: "))
+        print_separator(60)
 
-# [ESPAÇO PARA O CÓDIGO]
+        if birth_year < 1900 or birth_year > ANO_ATUAL:
+            print(f"Entrada inválida: digite apenas anos entre 1900 e {ANO_ATUAL}")
+            continue
+        
+        break
+    except ValueError:
+        print("Entrada inválida: insira apenas números inteiros.")
 
+age = ANO_ATUAL - birth_year
+
+if age > 18:
+    result = "Adulto"
+elif age > 13:
+    result = "Adolescente"
+else:
+    result = "Criança"
+
+print(f"Classificação: {result}")
+print_separator(60)
+# FIM DO DESAFIO 10
 
 print("\n--- FIM DOS DESAFIOS ---")
