@@ -13,8 +13,8 @@ Aqui estão organizadas as anotações de aula, códigos desenvolvidos em sala, 
 │   ├── aula01/
 │   ├── aula02/
 │   ├── ...
-│   └── exercicios/   
-│
+│   ├── exercicios/   
+│   └── projeto/
 └── estudos-complementares/
     └── python/
 ```
@@ -44,7 +44,12 @@ exercicios/
 
 **Nomenclatura dos arquivos** : nome-do-exercicio.py
 
-**Observação** : Nos exercícios da aula 01, quando não havia decidido o padrão atual de organização, foram criados subdiretórios contendo tanto os scripts dos exercícios quanto versões em texto descrevendo passo a passo os algoritmos utilizados.
+**Observação 01** : Nos exercícios da aula 01, quando não havia decidido o padrão atual de organização, foram criados subdiretórios contendo tanto os scripts dos exercícios quanto versões em texto descrevendo passo a passo os algoritmos utilizados.
+
+**Observação 02** : O diretório materiais-complementares foge do padrão de nomenclatura por não ser exercícios de alguma aula específica, mas armazena exercícios oficiais do curso que abrangem diversos assuntos abordados na UC1.
+
+### UC1/exercicios/
+Diretório que armazena a função listar_pedidos_da_mesa() (e o arquivo que utilizei testá-la) desenvolvida para integrar ao projeto final do módulo 1 (CASO: Restaurante Japonês Tanoshimi). 
 
 ### estudos-complementares/
 Diretório destinado aos estudos realizados além do conteúdo oficialmente abordado no curso.
