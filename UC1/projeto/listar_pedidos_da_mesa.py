@@ -1,12 +1,13 @@
 
-def listar_pedidos_da_mesa(numero_mesa: int, pedidos: list[dict], status: str | None = None) -> list[dict]:
+def listar_pedidos_da_mesa(numero_mesa: int, pedidos: list[dict], status: str | None = None, exibir: bool = True) -> list[dict]:
     '''
-    Apresenta e retorna todos os pedidos associados a uma mesa.
+    Apresenta e retorna todos os pedidos associados a uma mesa e, opcionalmente, apresenta-os no terminal.
 
     Args:
         numero_mesa: Número identificador da mesa.
         pedidos: Lista de dicionários representando os pedidos.
         status: Status opcional usado para filtrar os pedidos.
+        exibir: Indica se os pedidos encontrados devem ser exibidos no terminal. O padrão é True.
 
     Returns:
         Lista de pedidos associados à mesa e ao status informado.
@@ -17,7 +18,7 @@ def listar_pedidos_da_mesa(numero_mesa: int, pedidos: list[dict], status: str | 
         ValueError: Se o número da mesa não for maior que zero.
     '''
 
-    DISPLAY_WIDTH = 100
+    LARGURA_EXIBICAO = 100
 
     # Validações
     if not isinstance(numero_mesa, int):
@@ -36,6 +37,10 @@ def listar_pedidos_da_mesa(numero_mesa: int, pedidos: list[dict], status: str | 
         raise TypeError(
             "Parâmetro inválido: o status deve ser uma string ou None.")
 
+    if not isinstance(exibir, bool):
+        raise TypeError(
+            "Parâmetro inválido: exibir deve ser um valor booleano.")
+
     # Lógica da função
     pedidos_da_mesa = []
 
@@ -48,18 +53,21 @@ def listar_pedidos_da_mesa(numero_mesa: int, pedidos: list[dict], status: str | 
             else:
                 pedidos_da_mesa.append(pedido)
 
+    if not exibir:
+        return pedidos_da_mesa
+
     # Exibição no terminal
-    print("=" * DISPLAY_WIDTH)
-    print("RESTAURANTE TANOSHIMI - VISÃO DO GARÇOM".center(DISPLAY_WIDTH))
-    print("=" * DISPLAY_WIDTH)
+    print("=" * LARGURA_EXIBICAO)
+    print("RESTAURANTE TANOSHIMI - VISÃO DO GARÇOM".center(LARGURA_EXIBICAO))
+    print("=" * LARGURA_EXIBICAO)
 
     if status is not None:
         print(
-            f"PEDIDOS DA MESA {numero_mesa} - STATUS: {status.upper()}".center(DISPLAY_WIDTH))
+            f"PEDIDOS DA MESA {numero_mesa} - STATUS: {status.upper()}".center(LARGURA_EXIBICAO))
     else:
-        print(f"PEDIDOS DA MESA {numero_mesa}".center(DISPLAY_WIDTH))
+        print(f"PEDIDOS DA MESA {numero_mesa}".center(LARGURA_EXIBICAO))
 
-    print("=" * DISPLAY_WIDTH)
+    print("=" * LARGURA_EXIBICAO)
 
     if not pedidos_da_mesa:
 
@@ -68,15 +76,15 @@ def listar_pedidos_da_mesa(numero_mesa: int, pedidos: list[dict], status: str | 
         else:
             mensagem = f"Nenhum pedido com status '{status.lower()}' foi encontrado para essa mesa."
 
-        print(mensagem.center(DISPLAY_WIDTH))
+        print(mensagem.center(LARGURA_EXIBICAO))
 
     for indice_pedido, pedido in enumerate(pedidos_da_mesa):
         if indice_pedido != 0:
-            print("=" * DISPLAY_WIDTH)
+            print("=" * LARGURA_EXIBICAO)
 
         print(
-            f"PEDIDO {pedido['numero_pedido']} ({pedido['status']})".center(DISPLAY_WIDTH))
-        print("=" * DISPLAY_WIDTH)
+            f"PEDIDO {pedido['numero_pedido']} ({pedido['status']})".center(LARGURA_EXIBICAO))
+        print("=" * LARGURA_EXIBICAO)
 
         itens = pedido['itens']
 
@@ -98,10 +106,10 @@ def listar_pedidos_da_mesa(numero_mesa: int, pedidos: list[dict], status: str | 
                     print(" "*5 + f"Observações: {observacoes}")
 
                 if indice_item != len(itens):
-                    print("- " * (DISPLAY_WIDTH // 2))
+                    print("- " * (LARGURA_EXIBICAO // 2))
         else:
-            print("Nenhum item foi adicionado ao pedido.".center(DISPLAY_WIDTH))
+            print("Nenhum item foi adicionado ao pedido.".center(LARGURA_EXIBICAO))
 
-    print("=" * DISPLAY_WIDTH)
+    print("=" * LARGURA_EXIBICAO)
 
     return pedidos_da_mesa

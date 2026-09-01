@@ -116,6 +116,6 @@ pedidos = [
     },
 ]
 
-result = listar_pedidos_da_mesa(1, pedidos)
+result = listar_pedidos_da_mesa(1, pedidos, 'ABERTO', exibir=False)
 
 print(result)
