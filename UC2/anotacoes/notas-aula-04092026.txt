@@ -1,0 +1,13 @@
+Aula 01 - Dia 04/09/2026
+Tema principal: Ambiente virtual e introdução ao uso de pandas/numpy
+Palavra chave: Tabela 
+
+Nunca subir máquina virtual para o github.
+
+Criar venv: python -m venv .venv
+
+Comando utilizado para ver as dependências do ambiente: pip freeze
+
+Gerar o arquivo requirements.txt: pip freeze > requirements.txt
+
+Utilizar o pip para instalar com os requirements: pip install -r requirements.txt
