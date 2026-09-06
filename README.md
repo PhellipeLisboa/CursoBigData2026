@@ -15,6 +15,14 @@ Aqui estão organizadas as anotações de aula, códigos desenvolvidos em sala, 
 │   ├── ...
 │   ├── exercicios/   
 │   └── projeto/
+├── UC2/
+│   ├── requirements-venv/
+│   ├── anotacoes/
+│   ├── aula01/
+│   ├── aula02/
+│   ├── ...
+│   └── exercicios/   
+│   
 └── estudos-complementares/
     └── python/
 ```
@@ -50,6 +58,11 @@ exercicios/
 
 ### UC1/exercicios/
 Diretório que armazena a função listar_pedidos_da_mesa() (e o arquivo que utilizei testá-la) desenvolvida para integrar ao projeto final do módulo 1 (CASO: Restaurante Japonês Tanoshimi). 
+
+### UC2/
+Contém os materiais referentes à Unidade Curricular 2. Sua estrutura interna funciona de modo análogo ao diretório da UC1.
+
+**Observação 01** : Além dos diretórios semelhantes aos da UC1, existe o repositório UC2/requirements-venv que armazena o requirements.txt, arquivo responsável por armazenar as dependências do meu ambiente virtual.
 
 ### estudos-complementares/
 Diretório destinado aos estudos realizados além do conteúdo oficialmente abordado no curso.
