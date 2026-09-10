@@ -40,23 +40,23 @@ sale_transactions = df_transactions_analysis[df_transactions_analysis['operacao'
 
 # Quais são as máximas e mínimas de operação de compra e venda das transações?
 
-min_purchase_price = purchase_transactions['preco'].min()
-max_purchase_price = purchase_transactions['preco'].max()
-min_sale_price = sale_transactions['preco'].min()
-max_sale_price = sale_transactions['preco'].max()
+min_purchase_value = purchase_transactions['valor_total'].min()
+max_purchase_value = purchase_transactions['valor_total'].max()
+min_sale_value = sale_transactions['valor_total'].min()
+max_sale_value = sale_transactions['valor_total'].max()
 
 print_separator("=", DISPLAY_WIDTH)
 print("Quais são as máximas e mínimas de operação de compra e venda das transações?".center(DISPLAY_WIDTH))
 print_separator("=", DISPLAY_WIDTH)
 print(
-    f"O menor preço registrado nas operações de compra foi: R$ {min_purchase_price:.2f}")
+    f"O menor preço registrado nas operações de compra foi: R$ {min_purchase_value:.2f}")
 print(
-    f"O maior preço registrado nas operações de compra foi: R$ {max_purchase_price:.2f}")
+    f"O maior preço registrado nas operações de compra foi: R$ {max_purchase_value:.2f}")
 print_separator("- ", DISPLAY_WIDTH // 2)
 print(
-    f"O menor preço registrado nas operações de venda foi: R$ {min_sale_price:.2f}")
+    f"O menor preço registrado nas operações de venda foi: R$ {min_sale_value:.2f}")
 print(
-    f"O maior preço registrado nas operações de venda foi: R$ {max_sale_price:.2f}")
+    f"O maior preço registrado nas operações de venda foi: R$ {max_sale_value:.2f}")
 
 
 # Qual CNPJ tem o ativo de maior valor?
@@ -65,23 +65,28 @@ print_separator("=", DISPLAY_WIDTH)
 print("Qual CNPJ tem o ativo de maior valor?".center(DISPLAY_WIDTH))
 print_separator("=", DISPLAY_WIDTH)
 
-highest_price = df_price_history['preco'].max()
+latest_date = df_price_history['data'].max()
 
-highest_price_asset = df_price_history[
-    df_price_history['preco'] == highest_price
+latest_price_history = df_price_history[df_price_history['data'] == latest_date]
+
+highest_current_price = latest_price_history['preco'].max()
+
+highest_current_price_rows = latest_price_history[
+    latest_price_history['preco'] == highest_current_price
 ]
 
-asset_id = highest_price_asset['id_ativo'].max()
+asset_id = highest_current_price_rows['id_ativo'].iloc[0]
+data = highest_current_price_rows['data'].iloc[0]
 
 asset_rows = df_asset[
     df_asset['id_ativo'] == asset_id
 ]
 
-cnpj_with_highest_asset_value = asset_rows['cnpj'].max()
+cnpj_with_highest_asset_value = asset_rows['cnpj'].iloc[0]
 
 print(
-    f"O CNPJ que possui o ativo de maior valor é: {cnpj_with_highest_asset_value}")
-print(f"Valor do ativo: R$ {highest_price:.2f}")
+    f"Na data mais recente do histórico, {data:%d/%m/%Y}, o CNPJ que possui o ativo de maior valor é: {cnpj_with_highest_asset_value}")
+print(f"Valor do ativo nessa data: R$ {highest_current_price:.2f}")
 
 # Qual valor total em transações de cada participante?
 
@@ -93,7 +98,7 @@ print_separator("=", DISPLAY_WIDTH)
 total_transactions_by_participant = (
     df_transactions_analysis.groupby('id_participante')['valor_total'].sum())
 
-print(f"Total movimentado nas transações de cada participante:\n")
+print("Total movimentado nas transações de cada participante:\n")
 
 for participant_id, total_value in total_transactions_by_participant.items():
     print(f"Participante {participant_id}: R$ {total_value:.2f}")
@@ -114,7 +119,7 @@ net_cash_flow_by_participant = (
     )
 )
 
-print(f"Análise adicional: fluxo financeiro líquido de cada participante:\n")
+print("Análise adicional: fluxo financeiro líquido de cada participante:\n")
 
 for participant_id, net_cash_flow in net_cash_flow_by_participant.items():
     print(f"Participante {participant_id}: R$ {net_cash_flow:.2f}")
