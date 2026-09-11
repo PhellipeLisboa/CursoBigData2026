@@ -24,6 +24,7 @@ Aqui estão organizadas as anotações de aula, códigos desenvolvidos em sala, 
 │   └── exercicios/   
 │   
 └── estudos-complementares/
+    ├── analise-de-dados/ 
     └── python/
 ```
 
@@ -82,6 +83,7 @@ Os materiais são organizados por assunto e podem incluir:
 
 ```
 estudos-complementares/
+├── analise-de-dados/ 
 └── python/
 ```
 
