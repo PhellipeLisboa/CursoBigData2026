@@ -40,10 +40,10 @@ sale_transactions = df_transactions_analysis[df_transactions_analysis['operacao'
 
 # Quais são as máximas e mínimas de operação de compra e venda das transações?
 
-min_purchase_value = purchase_transactions['valor_total'].min()
-max_purchase_value = purchase_transactions['valor_total'].max()
-min_sale_value = sale_transactions['valor_total'].min()
-max_sale_value = sale_transactions['valor_total'].max()
+min_purchase_value = purchase_transactions['preco'].min()
+max_purchase_value = purchase_transactions['preco'].max()
+min_sale_value = sale_transactions['preco'].min()
+max_sale_value = sale_transactions['preco'].max()
 
 print_separator("=", DISPLAY_WIDTH)
 print("Quais são as máximas e mínimas de operação de compra e venda das transações?".center(DISPLAY_WIDTH))
@@ -57,7 +57,6 @@ print(
     f"O menor preço registrado nas operações de venda foi: R$ {min_sale_value:.2f}")
 print(
     f"O maior preço registrado nas operações de venda foi: R$ {max_sale_value:.2f}")
-
 
 # Qual CNPJ tem o ativo de maior valor?
 
