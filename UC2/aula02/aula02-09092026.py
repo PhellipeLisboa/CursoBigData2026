@@ -7,6 +7,7 @@
 
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 filmes = {
     'título': ["Lagoa Azul", "Agente Secreto", "Gênio Indomável", "A Freira", "Brinquedo Assassino", "Top Gun"],
@@ -30,3 +31,5 @@ print('-'*60)
 consulta1 = tabela_filmes.query("faturamento == 6.5")
 print(consulta1)
 print('-'*60)
+
+tabela_filmes.describe()
