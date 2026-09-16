@@ -1,5 +1,5 @@
 # Aula 02 - Dia 09/09/2026
-# Tema principal: 
+# Tema principal:
 
 # LOC
 # ILOC
@@ -32,4 +32,4 @@ consulta1 = tabela_filmes.query("faturamento == 6.5")
 print(consulta1)
 print('-'*60)
 
-tabela_filmes.describe()
+print(tabela_filmes.describe())
