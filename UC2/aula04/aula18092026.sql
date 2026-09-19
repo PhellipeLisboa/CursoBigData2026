@@ -65,12 +65,6 @@ ALTER TABLE pedidos
 ADD CONSTRAINT fk_pedidos_produtos
 FOREIGN KEY (id_produto) REFERENCES produtos(id_produto);
 
--- LISTAR O NOME DOS CLIENTES E A DATA DE SEUS PEDIDOS
-
-SELECT c.nome, p.data_pedido
-FROM clientes c
-JOIN pedidos p	ON c.id_cliente = p.id_cliente;
-
 -- EXEMPLOS DE DQL
 
 SELECT nome, preco
@@ -96,6 +90,25 @@ WHERE email NOT LIKE '%@email.com';
 SELECT *
 FROM produtos
 WHERE nome LIKE '%GAMER%';
+
+SELECT *
+FROM clientes 
+WHERE nome like '_ia';
+
+SELECT c.nome, p.data_pedido
+FROM clientes c
+JOIN pedidos p	ON c.id_cliente = p.id_cliente;
+
+SELECT 
+	COUNT(*) AS total_pedidos,
+    SUM(valor_total) AS faturamento_total,
+    AVG(valor_total) AS ticket_medio
+FROM pedidos;
+
+SELECT categoria, COUNT(*) AS qtd_produtos, AVG(preco) AS preco_medio
+FROM produtos
+GROUP BY categoria
+HAVING qtd_produtos > 5;
 
 -- DROP TABLE Produtos;
 
