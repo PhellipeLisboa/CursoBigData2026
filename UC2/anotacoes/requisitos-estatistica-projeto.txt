@@ -1,0 +1,11 @@
+-media/mediana
+-Q1,Q2,Q3
+-IQR,LS,LI,OUTLIER
+-Amplitude total
+-Variância e desvio padrão
+-Assimetria
+-Curtose
+- visuais: 
+    - Histograma
+    - Boxplot
+    - barras/linhas
