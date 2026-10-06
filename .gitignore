@@ -220,3 +220,6 @@ __marimo__/
 
 # CSVs
 *.csv
+
+# Parquet
+*.parquet
